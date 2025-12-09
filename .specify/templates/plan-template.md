@@ -31,7 +31,11 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- Technical accuracy: Verify all technical claims reference official documentation
+- Reproducibility: Ensure all examples can be reproduced in Ubuntu 22.04, ROS 2 Humble, Jetson Orin, or Isaac Sim
+- Safety requirements: Include appropriate warnings for hardware instructions and safety protocols
+- Specification-first: Confirm feature begins with detailed specification
+- Clarity: Ensure content matches technical audience level (university textbook equivalent)
 
 ## Project Structure
 

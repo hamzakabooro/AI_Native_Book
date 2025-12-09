@@ -48,9 +48,10 @@ description: "Task list template for feature implementation"
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create project structure per implementation plan
-- [ ] T002 Initialize [language] project with [framework] dependencies
-- [ ] T003 [P] Configure linting and formatting tools
+- [ ] T001 Create project structure per implementation plan with specification-first methodology
+- [ ] T002 Initialize [language] project with [framework] dependencies ensuring technical accuracy
+- [ ] T003 [P] Configure linting and formatting tools to maintain university-level clarity
+- [ ] T004 Document safety protocols and disclaimers for hardware instructions
 
 ---
 
@@ -62,12 +63,12 @@ description: "Task list template for feature implementation"
 
 Examples of foundational tasks (adjust based on your project):
 
-- [ ] T004 Setup database schema and migrations framework
-- [ ] T005 [P] Implement authentication/authorization framework
-- [ ] T006 [P] Setup API routing and middleware structure
-- [ ] T007 Create base models/entities that all stories depend on
-- [ ] T008 Configure error handling and logging infrastructure
-- [ ] T009 Setup environment configuration management
+- [ ] T005 Setup database schema and migrations framework ensuring reproducible builds
+- [ ] T006 [P] Implement authentication/authorization framework with proper safety protocols
+- [ ] T007 [P] Setup API routing and middleware structure following specification-first approach
+- [ ] T008 Create base models/entities that all stories depend on with technical accuracy
+- [ ] T009 Configure error handling and logging infrastructure for university-level clarity
+- [ ] T010 Setup environment configuration management for Ubuntu 22.04, ROS 2 Humble compatibility
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -88,12 +89,12 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Implementation for User Story 1
 
-- [ ] T012 [P] [US1] Create [Entity1] model in src/models/[entity1].py
-- [ ] T013 [P] [US1] Create [Entity2] model in src/models/[entity2].py
-- [ ] T014 [US1] Implement [Service] in src/services/[service].py (depends on T012, T013)
-- [ ] T015 [US1] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T016 [US1] Add validation and error handling
-- [ ] T017 [US1] Add logging for user story 1 operations
+- [ ] T012 [P] [US1] Create [Entity1] model in src/models/[entity1].py ensuring technical accuracy
+- [ ] T013 [P] [US1] Create [Entity2] model in src/models/[entity2].py with verifiable references
+- [ ] T014 [US1] Implement [Service] in src/services/[service].py following specification-first approach (depends on T012, T013)
+- [ ] T015 [US1] Implement [endpoint/feature] in src/[location]/[file].py ensuring reproducible results
+- [ ] T016 [US1] Add validation and error handling for university-level clarity
+- [ ] T017 [US1] Add logging for user story 1 operations with safety considerations
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -150,12 +151,13 @@ Examples of foundational tasks (adjust based on your project):
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] TXXX [P] Documentation updates in docs/
-- [ ] TXXX Code cleanup and refactoring
-- [ ] TXXX Performance optimization across all stories
-- [ ] TXXX [P] Additional unit tests (if requested) in tests/unit/
-- [ ] TXXX Security hardening
-- [ ] TXXX Run quickstart.md validation
+- [ ] TXXX [P] Documentation updates in docs/ ensuring technical accuracy with verifiable sources
+- [ ] TXXX Code cleanup and refactoring for university-level clarity
+- [ ] TXXX Performance optimization ensuring reproducible results across all stories
+- [ ] TXXX [P] Additional unit tests (if requested) in tests/unit/ following specification-first methodology
+- [ ] TXXX Security hardening with safety protocols and disclaimers
+- [ ] TXXX Run quickstart.md validation for Ubuntu 22.04, ROS 2 Humble compatibility
+- [ ] TXXX Verify RAG chatbot responses are grounded in book content with no hallucinations
 
 ---
 

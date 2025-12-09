@@ -1,0 +1,27 @@
+@startuml IsaacROSPipeline
+title Isaac ROS Perception Pipeline Architecture
+
+actor Student as S
+participant "Camera Sensors" as CS
+participant "Image Preprocessing" as IP
+participant "Feature Detection" as FD
+participant "Visual SLAM" as VSLAM
+participant "Object Detection" as OD
+participant "Sensor Fusion" as SF
+participant "Navigation System" as NS
+participant "Isaac ROS Bridge" as IRB
+
+S --> CS: Capture visual data
+CS --> IP: Raw image data
+IP --> FD: Rectified images
+FD --> VSLAM: Detected features
+FD --> OD: Image features
+VSLAM --> SF: Pose estimates
+OD --> SF: Object detections
+SF --> NS: Fused perception data
+SF --> IRB: Publish ROS messages
+IRB --> S: Provide perception results
+
+note right: Isaac ROS perception pipeline\naccelerates visual processing\nusing NVIDIA GPUs
+
+@enduml

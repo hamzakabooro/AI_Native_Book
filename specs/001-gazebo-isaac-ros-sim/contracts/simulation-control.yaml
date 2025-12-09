@@ -1,0 +1,191 @@
+# API Contract: Robot Simulation Control
+
+## Overview
+This document defines the API contracts for controlling robot simulations in the Gazebo-Isaac-ROS educational system. These contracts describe the ROS 2 interfaces for simulation control, robot state monitoring, and perception pipeline management.
+
+## Service: /simulation_control/start
+
+**Description**: Starts the simulation environment with specified parameters
+
+**Request**:
+```yaml
+type: simulation_msgs/srv/StartSimulation
+fields:
+  - string world_name: Name of the world file to load (e.g., "empty_world", "maze_world")
+  - float64 physics_rate: Physics update rate (Hz), default 1000.0
+  - float64 real_time_factor: Real-time factor (1.0 for real-time), default 1.0
+  - bool enable_gui: Whether to start with GUI interface, default true
+```
+
+**Response**:
+```yaml
+type: simulation_msgs/srv/StartSimulation_Response
+fields:
+  - bool success: Whether simulation started successfully
+  - string message: Additional information about the result
+  - string simulation_id: Unique identifier for the simulation instance
+```
+
+**Example Usage**:
+```bash
+# Start simulation with default parameters
+ros2 service call /simulation_control/start simulation_msgs/srv/StartSimulation "{world_name: 'empty_world', enable_gui: true}"
+```
+
+## Service: /simulation_control/pause
+
+**Description**: Pauses the simulation
+
+**Request**:
+```yaml
+type: simulation_msgs/srv/SimulationControl
+fields:
+  - bool pause: True to pause, False to resume
+```
+
+**Response**:
+```yaml
+type: simulation_msgs/srv/SimulationControl_Response
+fields:
+  - bool success: Whether the operation succeeded
+  - string message: Additional information about the result
+```
+
+## Topic: /robot_model/pose
+
+**Description**: Current pose of the robot in the simulation
+
+**Message Type**: `geometry_msgs/msg/PoseStamped`
+
+**Message Structure**:
+```yaml
+std_msgs/msg/Header header
+  uint32 seq
+  builtin_interfaces/msg/Time stamp
+    int32 sec
+    uint32 nanosec
+  string frame_id
+geometry_msgs/msg/Pose pose
+  geometry_msgs/msg/Point position
+    float64 x
+    float64 y
+    float64 z
+  geometry_msgs/msg/Quaternion orientation
+    float64 x
+    float64 y
+    float64 z
+    float64 w
+```
+
+**Frequency**: 30 Hz
+
+## Topic: /robot_model/tf
+
+**Description**: Transform tree for the robot and environment
+
+**Message Type**: `tf2_msgs/msg/TFMessage`
+
+**Message Structure**:
+```yaml
+geometry_msgs/TransformStamped[] transforms
+```
+
+**Frequency**: 30 Hz
+
+## Topic: /sensor_sim/lidar_scan
+
+**Description**: Simulated LiDAR data from robot's LiDAR sensor
+
+**Message Type**: `sensor_msgs/msg/LaserScan`
+
+**Message Structure**:
+```yaml
+std_msgs/msg/Header header
+float32 angle_min
+float32 angle_max
+float32 angle_increment
+float32 time_increment
+float32 scan_time
+float32 range_min
+float32 range_max
+float32[] ranges
+float32[] intensities
+```
+
+**Frequency**: 10 Hz
+
+## Topic: /sensor_sim/camera_depth
+
+**Description**: Simulated depth camera data
+
+**Message Type**: `sensor_msgs/msg/Image`
+
+**Message Structure**:
+```yaml
+std_msgs/msg/Header header
+uint32 height
+uint32 width
+string encoding
+uint8 is_bigendian
+uint32 step
+uint8[] data
+```
+
+**Frequency**: 15 Hz
+
+## Service: /perception_pipeline/configure
+
+**Description**: Configures perception pipeline parameters
+
+**Request**:
+```yaml
+type: perception_msgs/srv/ConfigurePipeline
+fields:
+  - string pipeline_name: Name of the perception pipeline to configure
+  - string robot_name: Name of the robot for which to configure
+  - string[] input_topics: List of input topics for the pipeline
+  - string[] output_topics: List of output topics for the pipeline
+  - string parameters: JSON string with pipeline-specific parameters
+```
+
+**Response**:
+```yaml
+type: perception_msgs/srv/ConfigurePipeline_Response
+fields:
+  - bool success: Whether configuration was successful
+  - string message: Additional information about the result
+```
+
+## Topic: /navigation/waypoints
+
+**Description**: Waypoints for robot navigation
+
+**Message Type**: `nav_msgs/msg/Path`
+
+**Message Structure**:
+```yaml
+std_msgs/msg/Header header
+geometry_msgs/msg/PoseStamped[] poses
+```
+
+**Frequency**: 1 Hz (when path is updated)
+
+## Service: /navigation/set_goal
+
+**Description**: Sets navigation goal for the robot
+
+**Request**:
+```yaml
+type: nav2_msgs/srv/SetGoal
+fields:
+  - geometry_msgs/msg/PoseStamped goal_pose: Goal pose in map frame
+  - string behavior_tree: Behavior tree to use for navigation (optional)
+```
+
+**Response**:
+```yaml
+type: nav2_msgs/srv/SetGoal_Response
+fields:
+  - bool accepted: Whether the goal was accepted
+  - string message: Additional information about the result
+```

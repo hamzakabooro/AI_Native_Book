@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Arguments -->
+  <arg name="world" default="empty_world"/>
+  <arg name="model" default="$(find basic_digital_twin)/models/basic_robot.urdf"/>
+  <arg name="rvizconfig" default="$(find basic_digital_twin)/rviz/robot.rviz"/>
+
+  <!-- Start Gazebo with empty world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch.py">
+    <arg name="world_name" value="$(var world)"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+  </include>
+
+  <!-- Send robot urdf to param server -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" exec="robot_state_publisher" output="screen">
+    <param name="robot_description" value="$(var model)"/>
+  </node>
+
+  <!-- Spawn robot in gazebo -->
+  <node name="spawn_urdf" pkg="gazebo_ros" exec="spawn_entity.py"
+        args="-topic robot_description -entity basic_robot"/>
+
+  <!-- Start RViz -->
+  <node name="rviz" pkg="rviz2" exec="rviz2" args="-d $(var rvizconfig)" output="screen"/>
+</launch>

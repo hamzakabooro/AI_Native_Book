@@ -1,0 +1,13 @@
+# Service for starting simulation with specified parameters
+# This matches the simulation control contract
+
+string world_name  # Name of the world file to load (e.g., "empty_world", "maze_world")
+float64 physics_rate  # Physics update rate (Hz), default 1000.0
+float64 real_time_factor  # Real-time factor (1.0 for real-time), default 1.0
+bool enable_gui  # Whether to start with GUI interface, default true
+
+---
+# Response for the start simulation service
+bool success  # Whether simulation started successfully
+string message  # Additional information about the result
+string simulation_id  # Unique identifier for the simulation instance

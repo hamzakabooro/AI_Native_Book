@@ -1,0 +1,27 @@
+@startuml SensorSimulationPipeline
+title Sensor Simulation Pipeline Architecture
+
+actor Student as S
+participant "Gazebo Simulator" as G
+participant "LiDAR Sensor Model" as L
+participant "Camera Sensor Model" as C
+participant "IMU Sensor Model" as I
+participant "ROS 2 Bridge" as ROS
+participant "Sensor Processing Nodes" as SPN
+participant "RViz Visualization" as RViz
+participant "Validation Tools" as VT
+
+S --> G: Configure robot with sensors
+G --> L: Simulate LiDAR rays
+G --> C: Simulate camera images
+G --> I: Simulate IMU measurements
+L --> ROS: Publish LaserScan
+C --> ROS: Publish Image/Depth
+I --> ROS: Publish IMU data
+ROS --> SPN: Send sensor data
+SPN --> RViz: Forward to visualization
+SPN --> VT: Send to validation tools
+
+note right: Sensor simulation pipeline\nsimulates realistic sensor\nbehavior in a virtual environment\nfor testing perception algorithms
+
+@enduml

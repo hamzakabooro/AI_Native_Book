@@ -1,0 +1,28 @@
+@startuml Nav2NavigationPipeline
+title Nav2 Navigation Pipeline for Humanoid Robots
+
+actor Student as S
+participant "Navigation Goal" as NG
+participant "Behavior Tree" as BT
+participant "Global Planner" as GP
+participant "Local Planner" as LP
+participant "Costmap Server" as CS
+participant "Humanoid Controller" as HC
+participant "Sensor Fusion" as SF
+participant "Localization" as LOC
+
+S --> NG: Set navigation goal
+NG --> BT: Execute navigation behavior
+BT --> GP: Request global path
+GP --> CS: Access global costmap
+BT --> LP: Request local path following
+LP --> CS: Access local costmap
+LP --> HC: Send velocity commands
+HC --> S: Robot locomotion
+SF --> CS: Provide sensor data
+LOC --> CS: Provide robot position
+LOC --> BT: Provide localization feedback
+
+note right: Nav2 navigation pipeline\nfor humanoid robots\nwith safety and balance considerations
+
+@enduml

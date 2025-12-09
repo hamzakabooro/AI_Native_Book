@@ -84,16 +84,17 @@
 
 ### Functional Requirements
 
-- **FR-001**: System MUST [specific capability, e.g., "allow users to create accounts"]
-- **FR-002**: System MUST [specific capability, e.g., "validate email addresses"]  
-- **FR-003**: Users MUST be able to [key interaction, e.g., "reset their password"]
-- **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
-- **FR-005**: System MUST [behavior, e.g., "log all security events"]
+- **FR-001**: System MUST follow specification-first development methodology with clear objectives, architecture sketches, and acceptance criteria
+- **FR-002**: System MUST maintain technical accuracy with references to verifiable sources (official ROS 2 docs, NVIDIA Isaac docs, academic papers, vendor datasheets)
+- **FR-003**: System MUST ensure all code examples are reproducible in Ubuntu 22.04, ROS 2 Humble, Jetson Orin, or Isaac Sim environments
+- **FR-004**: System MUST write content for intermediate-to-advanced technical audience at university textbook level
+- **FR-005**: System MUST include safety protocols and disclaimers for all hardware instructions and robot behaviors
+- **FR-006**: RAG chatbot MUST provide responses grounded strictly in user-selected book text with no ungrounded answers
 
 *Example of marking unclear requirements:*
 
-- **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
-- **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
+- **FR-007**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
+- **FR-008**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
 
 ### Key Entities *(include if feature involves data)*
 

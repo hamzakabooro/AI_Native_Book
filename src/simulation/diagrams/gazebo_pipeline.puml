@@ -1,0 +1,20 @@
+@startuml GazeboSimulationPipeline
+title Gazebo Simulation Pipeline Architecture
+
+actor Student as S
+participant "Gazebo Simulator" as G
+participant "Robot Model (URDF)" as R
+participant "Sensors (LiDAR, Camera, IMU)" as Sen
+participant "ROS 2 Bridge" as ROS
+participant "RViz Visualization" as RViz
+
+S --> G: Launch simulation
+G --> R: Load robot model
+R --> Sen: Attach sensors
+Sen --> ROS: Publish sensor data
+ROS --> RViz: Send data for visualization
+ROS --> G: Send control commands
+
+note right: Student interacts with\nsimulation through ROS 2\nmessages and can visualize\nsensor data in RViz
+
+@enduml

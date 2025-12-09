@@ -1,0 +1,13 @@
+# Service for configuring perception pipeline parameters
+# This matches the perception pipeline configuration contract
+
+string pipeline_name  # Name of the perception pipeline to configure
+string robot_name  # Name of the robot for which to configure
+string[] input_topics  # List of input topics for the pipeline
+string[] output_topics  # List of output topics for the pipeline
+string parameters  # JSON string with pipeline-specific parameters
+
+---
+# Response for the perception pipeline configuration service
+bool success  # Whether configuration was successful
+string message  # Additional information about the result

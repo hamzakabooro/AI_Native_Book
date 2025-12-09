@@ -1,0 +1,97 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #1a73e8; /* Blue representing physics/engineering */
+  --ifm-color-primary-dark: #1765cc;
+  --ifm-color-primary-darker: #1558b8;
+  --ifm-color-primary-darkest: #124899;
+  --ifm-color-primary-light: #4285f4;
+  --ifm-color-primary-lighter: #5a95f5;
+  --ifm-color-primary-lightest: #73a7f7;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-color-hero-background: #f5f7fa; /* Light background for hero section */
+  --ifm-color-book-title: #202124; /* Dark color for book title */
+  --ifm-color-book-subtitle: #5f6368; /* Subtle color for subtitle */
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #8ab4f8;
+  --ifm-color-primary-dark: #6a9df2;
+  --ifm-color-primary-darker: #5a8deb;
+  --ifm-color-primary-darkest: #3a73d4;
+  --ifm-color-primary-light: #a8c7fa;
+  --ifm-color-primary-lighter: #c2d6fc;
+  --ifm-color-primary-lightest: #e0eaf7;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-hero-background: #0d1a29; /* Dark background for hero section in dark mode */
+  --ifm-color-book-title: #e8eaed; /* Light color for book title in dark mode */
+  --ifm-color-book-subtitle: #9aa0a6; /* Subtle color for subtitle in dark mode */
+}
+
+/* Custom styles for Physical AI Engineering book */
+.hero--primary {
+  background: linear-gradient(135deg, #1a237e, #4a148c); /* Gradient from blue to violet for physics theme */
+  color: white;
+}
+
+.hero__title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero__subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.button--secondary {
+  background-color: #fff;
+  color: #1a237e;
+  font-weight: bold;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.button--secondary:hover {
+  background-color: #f5f5f5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Custom styling for features section */
+.features {
+  padding: 4rem 0;
+  background-color: var(--ifm-color-hero-background);
+}
+
+/* Custom styling for feature SVG icons */
+.featureSvg {
+  height: 200px;
+  width: 200px;
+  padding: 1rem;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+/* Styling for code blocks */
+.code-block {
+  border-left: 4px solid var(--ifm-color-primary);
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 0 4px 4px 0;
+}
+
+/* Sidebar customizations */
+.menu__list-item-collapsible {
+  font-weight: 500;
+}

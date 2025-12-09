@@ -1,0 +1,22 @@
+@startuml IsaacSimPipeline
+title Isaac Sim Perception Pipeline Architecture
+
+actor Student as S
+participant "Isaac Sim" as IS
+participant "Humanoid Robot Model" as HRM
+participant "Isaac ROS Bridge" as IRB
+participant "Perception Pipeline" as PP
+participant "Synthetic Data Generator" as SDG
+participant "VSLAM Module" as VSLAM
+
+S --> IS: Load humanoid scene
+IS --> HRM: Instantiate robot model
+HRM --> IRB: Connect to ROS bridge
+IRB --> PP: Send sensor data
+PP --> VSLAM: Process visual data
+IRB --> SDG: Generate synthetic data
+SDG --> S: Output training data
+
+note right: Isaac Sim provides\nphotorealistic simulation\nwith hardware-accelerated\nperception through Isaac ROS
+
+@enduml

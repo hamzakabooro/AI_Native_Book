@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        ros_distribution:
+          - humble
+        include:
+          # Humble Hawksbill (Ubuntu 22.04)
+          - ros_distribution: humble
+            docker_image: ubuntu:22.04
+            ros_version: 2
+
+    container:
+      image: ${{ matrix.docker_image }}
+
+    steps:
+      - name: Setup ROS
+        uses: ros-tooling/setup-ros@v0.7
+        with:
+          required-ros-distributions: ${{ matrix.ros_distribution }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Build and Test
+        uses: ros-tooling/action-ros-ci@v0.3
+        with:
+          package-name: basic_digital_twin sensor_simulation
+          target-ros2-distro: ${{ matrix.ros_distribution }}
+          vcs-repo-file-url: ""

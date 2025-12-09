@@ -1,0 +1,21 @@
+# Service for setting navigation goal for the robot
+# This matches the navigation goal setting contract
+
+# Define the PoseStamped message structure inline
+string header_frame_id
+int32 header_stamp_sec
+uint32 header_stamp_nanosec
+float64 pose_position_x
+float64 pose_position_y
+float64 pose_position_z
+float64 pose_orientation_x
+float64 pose_orientation_y
+float64 pose_orientation_z
+float64 pose_orientation_w
+
+string behavior_tree  # Behavior tree to use for navigation (optional)
+
+---
+# Response for the navigation goal service
+bool accepted  # Whether the goal was accepted
+string message  # Additional information about the result
