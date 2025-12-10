@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Physical AI Engineering',
-  tagline: 'Bridging Physics and Machine Learning for Advanced Engineering Applications',
+  title: 'Physical AI & Humanoid Robotics',
+  tagline: 'learing Physics and Machine Learning for Advanced Engineering Applications',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -75,7 +75,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Physical AI Engineering',
+      title: 'AI Native Book',
       logo: {
         alt: 'Physical AI Engineering Logo',
         src: 'img/logo.svg',
