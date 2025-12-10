@@ -15,15 +15,15 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-physical-ai-engineering-book.example.com',
+  url: 'https://ai-native-book.vercel.app',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'Physical-AI-Engineering-Book', // Usually your GitHub org/user name.
-  projectName: 'Physical-AI-Engineering-Book', // Usually your repo name.
+  organizationName: 'hamzakabooro', // Usually your GitHub org/user name.
+  projectName: 'AI_Native_Book', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 
@@ -44,7 +44,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/hamzakabooro/AI_Native_Book/tree/main/my-website/',
         },
         blog: {
           showReadingTime: true,
@@ -55,7 +55,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/hamzakabooro/AI_Native_Book/tree/main/my-website/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -89,7 +89,7 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/Physical-AI-Engineering-Book/Physical-AI-Engineering-Book',
+          href: 'https://github.com/hamzakabooro/AI_Native_Book',
           label: 'GitHub',
           position: 'right',
         },
@@ -133,7 +133,7 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/Physical-AI-Engineering-Book/Physical-AI-Engineering-Book',
+              href: 'https://github.com/hamzakabooro/AI_Native_Book',
             },
           ],
         },
